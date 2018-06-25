@@ -19,3 +19,5 @@ Lets consider a real life scenario to illustrate the end-to-end picture and help
 
 We will a social network feed to get real-time insights, in this example all the tweets being produced during the Kubecon conference. We will run through a scenario where we would like to get real-time notification of the mention of a topic of interest: kubeless :)
 
+Lets see how to build a data processing pipeline by deploying Kubeless functions that are executed when events appear in an Amazon Kinesis stream.
+
