@@ -13,7 +13,7 @@ Please follow the [installation steps](https://github.com/kubeless/kubeless/blob
 
 Once you have a working Kubeless setup please follow the [instructions](https://github.com/kubeless/kubeless/blob/master/docs/streaming-functions.md#aws-kinesis) to setup Kinesis trigger setup in Kubeless
 
-# Example Scenario
+## Example Scenario
 
 Lets consider a real life scenario to illustrate the end-to-end picture and help you appreciate the power of Kinesis and Kubeless.
 
