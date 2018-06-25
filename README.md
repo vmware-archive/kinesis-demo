@@ -37,5 +37,5 @@ Now that we have a Kinesis stream to take the data in, we will use a simple Pyth
 $ python ./streaming.py
 ```
 
-it will filter for tweets that contain the hashtag #kubelessonaws, and push the data into Kinesis.
-The Python script filtering the Twitter stream, looking for #kubelessonaws, will push the tweet to Kinesis
+Script when run requests twitter API to notify for tweets that contain the hashtag #kubelessonaws. When twitter API notifies a tweet script pushes the data into `KubelessDemo` Kinesis stream
+
