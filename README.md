@@ -39,3 +39,43 @@ $ python ./streaming.py
 
 Script when run requests twitter API to notify for tweets that contain the hashtag `#kubelessonaws`. When twitter API notifies a tweet script pushes the data into `KubelessDemo` Kinesis stream
 
+## Deploying the function
+
+Now that we have a producer of data to fill up our Kinesis stream, lets deploy Kubeless function that sends an SNS mobile notification when the keyword “kubeless” appears in a tweet. To do we will use simple Python script [sns.py](https://github.com/kubeless/kinesis-demo/blob/master/sns.py) below and we deploy it as Kubeless function using Kubeless CLI.
+
+```
+kubeless function deploy tweets  --runtime python2.7 \
+                                                     --handler sns.tweets_processor \
+                                                     --from-file sns.py \
+                                                     --dependencies requirements.txt
+```
+
+## Associating Kinesis stream as trigger
+
+Now that the Kubeless function to push the tweet to SNS is deployed into Kubeless we need to associate Kinesis stream that we created as event source to trigger the function invocation.
+
+First, Kubeless needs to be able poll the Kinesis stream to fetch the records. To do this, Kubeless need access to AWS credentials. Kubeless uses Kubenetes secrets to store AWS keys. Lets create a Kubernetes secret to store AWS access and secret keys from a user that has access to our Kinesis stream:
+
+```
+kubectl create secret generic ec2 \
+--from-literal=aws_access_key_id=$AWS_ACCESS_KEY_ID \
+--from-literal=aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
+```
+
+Now that the function is deployed into Kubeless and a secret is available with AWS credential, Lets set up the Kinesis trigger that associates the deployed function with the KubelessDemo Kinesis stream that we created earlier. The Kubeless CLI has a subcommand kubeless trigger kinesis to do just that. Below is CLI command to create and associate a Kinesis trigger with deployed function:
+
+```
+kubeless trigger kinesis create kinesis-trigger --function-name tweets\
+                                                                         --aws-region us-west-2 \
+                                                                         --shard-id shardId-000000000000 \
+                                                                         --stream KubelessDemo \
+                                                                         --secret ec2
+```
+
+## See it in action
+
+That’s it! At this point Kubeless will start polling for records in the Kinesis stream. When there are records to be processed, Kubeless will invoke the associated Kubeless functions. Kubeless will automatically scale up or scale down the resources it consumes (Kubernetes pods) as necessary to process the records in the stream.
+
+The Python script filtering the Twitter stream, looking for #kubelessonaws, will push the tweet to Kinesis.
+
+
