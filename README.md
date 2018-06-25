@@ -23,6 +23,7 @@ Lets see how to build a data processing pipeline by deploying Kubeless functions
 
 ## Setup a Kinesis Stream
 
+Lets start by creating a Kinesis stream using the AWS web console to a create a data stream named `KubelessDemo`.
 
 
 ## Settingup Data Producer
