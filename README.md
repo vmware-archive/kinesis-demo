@@ -12,3 +12,10 @@ In the subsequent sections we will go through setting up Kubeless and enabling s
 Please follow the [installation steps](https://github.com/kubeless/kubeless/blob/master/docs/quick-start.md#installation) in the Kubeless quick start quide to deploy Kubeless on a functional Kubernetes cluster.
 
 Once you have a working Kubeless setup please follow the [instructions](https://github.com/kubeless/kubeless/blob/master/docs/streaming-functions.md#aws-kinesis) to setup Kinesis trigger setup in Kubeless
+
+# Example Scenario
+
+Lets consider a real life scenario to illustrate the end-to-end picture and help you appreciate the power of Kinesis and Kubeless.
+
+We will a social network feed to get real-time insights, in this example all the tweets being produced during the Kubecon conference. We will run through a scenario where we would like to get real-time notification of the mention of a topic of interest: kubeless :)
+
