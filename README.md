@@ -1,2 +1,7 @@
-# kinesis-demo
-Demo scripts for AWS Kinesis as event source for Kubeless
+# A hands-on tutorial on using AWS Kinesis streams as Kubeless trigger
+
+Kubeless is a Kubernetes-native FaaS framework that lets you deploy functions without having to worry about the underlying infrastructure used for executing them. It is designed to be deployed on top of a Kubernetes cluster and take advantage of all the great Kubernetes primitives. Kubeless is built around the core concepts of functions, triggers, and runtimes. Triggers in Kubeless represent the event sources and associated functions to be executed on occurence of an event from a given event source. Kubeless supports a wide variety of event sources including AWS [Kinesis](https://aws.amazon.com/kinesis/) streams
+
+Amazon Kinesis is a fully-managed streaming data service that makes it easy to collect, process, and analyze real-time, streaming data; it offers key capabilities to cost-effectively process streaming data at any scale. The unit of data stored by Kinesis Data Streams is a data record: a stream represents a group of data records. You can deploy functions in Kubeless and associate with an AWS Kinesis stream. Kubeless will run the functions in response to records being published to a Kinesis stream.
+
+In the subsequent sections we will go through setting up Kubeless and enabling support for Kinesis stream as trigger. We will go over steps to deploy a function in Kubeless that will be triggered in response to the records published to an AWS Kinesis stream.
