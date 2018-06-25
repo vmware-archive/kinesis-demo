@@ -31,3 +31,5 @@ The snapshot above comes directly from the AWS management console. As you can se
 
 ## Settingup Data Producer
 
+Now that we have a Kinesis stream to take the data in, we will use a simple Python program [streaming.py](https://github.com/kubeless/kinesis-demo/blob/master/streaming.py) that uses [boto3](https://github.com/boto/boto3) and [tweepy](https://github.com/tweepy/tweepy) to fetch in real time tweets with the hashtag #kubecon, and ingest the data into the KubelessDemo Kinesis stream. Run the following Python script locally; it will filter for tweets that contain the hashtag #kubelessonaws, and push the data into Kinesis.
+
