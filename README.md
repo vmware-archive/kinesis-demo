@@ -37,5 +37,5 @@ Now that we have a Kinesis stream to take the data in, we will use a simple Pyth
 $ python ./streaming.py
 ```
 
-Script when run requests twitter API to notify for tweets that contain the hashtag #kubelessonaws. When twitter API notifies a tweet script pushes the data into `KubelessDemo` Kinesis stream
+Script when run requests twitter API to notify for tweets that contain the hashtag `#kubelessonaws`. When twitter API notifies a tweet script pushes the data into `KubelessDemo` Kinesis stream
 
