@@ -1,3 +1,9 @@
+## WARNING: Kubeless is no longer actively maintained by VMware.
+
+VMware has made the difficult decision to stop driving this project and therefore we will no longer actively respond to issues or pull requests. If you would like to take over maintaining this project independently from VMware, please let us know so we can add a link to your forked project here.
+
+Thank You.
+
 # AWS Kinesis streams as Kubeless trigger
 
 Kubeless is a Kubernetes-native FaaS framework that lets you deploy functions without having to worry about the underlying infrastructure used for executing them. It is designed to be deployed on top of a Kubernetes cluster and take advantage of all the great Kubernetes primitives. Kubeless is built around the core concepts of functions, triggers, and runtimes. Triggers in Kubeless represent the event sources and associated functions to be executed on occurence of an event from a given event source. Kubeless supports a wide variety of event sources including AWS [Kinesis](https://aws.amazon.com/kinesis/) streams
